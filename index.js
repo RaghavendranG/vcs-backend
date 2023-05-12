@@ -28,7 +28,7 @@ const corsOptions={
     optionSuccessStatus:200,
 }
 
-app.use("/",isSigned, repoRoutes);
+app.use("/", repoRoutes);
 app.use("/signUp",signUpRoute);
 app.use("/logIn",logInRoutes);
 
