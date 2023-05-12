@@ -5,6 +5,7 @@ import { dbConnection } from "./database/db.js"
 import { repoRoutes } from "./routes/repoRoutes.js"
 import { signUpRoute } from "./routes/signUpRoute.js"
 import { logInRoutes } from "./routes/loginRoute.js"
+import { isSigned } from "./Controllers/auth.js";
 
 //env configuration
 dotenv.config()
@@ -27,7 +28,7 @@ const corsOptions={
     optionSuccessStatus:200,
 }
 
-app.use("/",repoRoutes);
+app.use("/",isSigned, repoRoutes);
 app.use("/signUp",signUpRoute);
 app.use("/logIn",logInRoutes);
 
